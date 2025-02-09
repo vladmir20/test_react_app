@@ -51,20 +51,20 @@ export default function TextForm(props) {
         ></textarea>
       </div>
       <div>
-        <button onClick={onUpClick} className="btn btn-primary ">
+        <button onClick={onUpClick} className="btn btn-primary mx-3 my-2 ">
           Convert to Uppercase
         </button>
-        <button onClick={onDownClick} className="btn btn-primary mx-3">
+        <button onClick={onDownClick} className="btn btn-primary mx-3 my-2">
           Convert to Lowercase
         </button>
-        <button onClick={onCapClick} className="btn btn-primary mx-3">
+        <button onClick={onCapClick} className="btn btn-primary mx-3 my-2">
           Capitalise Each Word
         </button>
-        <button onClick={onSpClick} className="btn btn-primary mx-3">
+        <button onClick={onSpClick} className="btn btn-primary mx-3 my-2">
           Remove Extra Spaces
         </button>
 
-        <button onClick={clearText} className="btn btn-success mx-3">
+        <button onClick={clearText} className="btn btn-success mx-3 my-2">
           Clear Text
         </button>
       </div>
@@ -72,7 +72,13 @@ export default function TextForm(props) {
         <h3>You're Text Summary</h3>
         <div className="container">
           <span>
-            You have written total number of {paraText.split(" ").length}
+            You have written total number of{" "}
+            {
+              paraText
+                .trim()
+                .split(/\s+/)
+                .filter((word) => word !== "").length
+            }
             <strong> words</strong> and {paraText.length}{" "}
             <strong>characters</strong>
           </span>
